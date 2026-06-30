@@ -4,7 +4,14 @@
 
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# When piped via bash <(curl ...), BASH_SOURCE[0] is /dev/stdin — clone the repo instead
+if [[ "${BASH_SOURCE[0]}" == "/dev/stdin" || "${BASH_SOURCE[0]}" == "bash" ]]; then
+  SCRIPT_DIR=$(mktemp -d)
+  git clone --depth 1 https://github.com/CallumJB125/claude-maxout.git "$SCRIPT_DIR" &>/dev/null
+  trap 'rm -rf "$SCRIPT_DIR"' EXIT
+else
+  SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+fi
 LIB_DIR="$SCRIPT_DIR/lib"
 
 JSON_OUTPUT=false
