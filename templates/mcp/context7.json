@@ -1,0 +1,11 @@
+{
+  "_comment": "context7 MCP — real-time framework documentation. Install: automatic via npx.",
+  "_install": "No pre-install needed — npx handles it on first use.",
+  "_usage": "Merge the 'context7' block below into your mcpServers section in ~/.claude/settings.json",
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    }
+  }
+}

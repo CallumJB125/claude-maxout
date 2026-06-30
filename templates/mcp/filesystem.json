@@ -1,0 +1,16 @@
+{
+  "_comment": "Filesystem MCP — gives Claude read/write access to specified directories beyond the project root.",
+  "_install": "No pre-install needed — npx handles it.",
+  "_usage": "Merge the 'filesystem' block below into mcpServers. Edit 'allowed_dirs' to your paths.",
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/YOUR_USERNAME/Desktop",
+        "/Users/YOUR_USERNAME/Documents"
+      ]
+    }
+  }
+}

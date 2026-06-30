@@ -1,0 +1,61 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(ls*)",
+      "Bash(find . *)",
+      "Bash(grep*)",
+      "Bash(cat *)",
+      "Bash(echo *)",
+      "Bash(mkdir *)",
+      "Bash(cp *)",
+      "Bash(mv *)",
+      "Bash(chmod *)",
+      "Bash(which *)",
+      "Bash(type *)",
+      "Bash(command *)",
+      "Bash(jq *)",
+      "Bash(curl -s *)",
+      "Bash(npm run *)",
+      "Bash(npx *)",
+      "Bash(node *)",
+      "Read(**)",
+      "Edit(**)",
+      "Write(**)"
+    ],
+    "deny": [
+      "Bash(rm -rf /)",
+      "Bash(sudo rm *)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'PreToolUse:Bash hook — use parallel execution for independent tasks'"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'File written. Test the changes to ensure they work correctly.'"
+          }
+        ]
+      }
+    ]
+  },
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    }
+  }
+}
