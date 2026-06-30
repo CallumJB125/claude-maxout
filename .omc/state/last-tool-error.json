@@ -1,7 +1,0 @@
-{
-  "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"shellcheck /Users/callumbaker/Desktop/claude-maxout/audit.sh /Users/callumbaker/Desktop/claude-maxout/lib/*.sh 2>&1\",\"description\":\"Run shellcheck on all scripts\"}",
-  "error": "Exit code 1\n\nIn /Users/callumbaker/Desktop/claude-maxout/audit.sh line 29:\nsource \"$LIB_DIR/detect-stack.sh\"\n       ^------------------------^ SC1091 (info): Not following: ./detect-stack.sh was not specified as input (see shellcheck -x).\n\n\nIn /Users/callumbaker/Desktop/claude-maxout/audit.sh line 30:\nsource \"$LIB_DIR/audit-claude-core.sh\"\n       ^-----------------------------^ SC1091 (info): Not following: ./audit-claude-core.sh was not specified as input (see shellcheck -x).\n\n\nIn /Users/callum...",
-  "timestamp": "2026-06-30T08:10:09.461Z",
-  "retry_count": 1
-}
