@@ -16,9 +16,9 @@ cd claude-maxout
 ./audit.sh
 ```
 
-Or run directly (once the repo is public):
+Or run directly without cloning:
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/YOUR_USERNAME/claude-maxout/main/audit.sh)
+bash <(curl -s https://raw.githubusercontent.com/CallumJB125/claude-maxout/main/audit.sh)
 ```
 
 ---
